@@ -1,5 +1,5 @@
 {% extends 'todo/base.html' %}
-
+{% load static %}
 {% block conteudo %}
 
   <form action="" method="post">
@@ -24,7 +24,12 @@
 
   {% for tarefa in tarefas %}
 
-  <p>{{ forloop.counter }} - {{ tarefa.nome}}</p>
+  <p>{{ forloop.counter }} - {{ tarefa.nome}} 
+     <a href="{% url 'todo:delete_task' tarefa.id %}">
+        <img src="{% static 'x-circle.svg' %}" class="icon">
+     </a>
+
+  </p>
      
   {% endfor %}
 
